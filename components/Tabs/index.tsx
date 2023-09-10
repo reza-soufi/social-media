@@ -4,7 +4,11 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import { MessageNumber } from "../StyledComponents/MessageNumber";
+import { MessageNumber } from "../StyledComponents/commonStyles/MessageNumber";
+import ChannelList from "../StyledComponents/channels/ChannelList";
+import { clientApi } from "@/services/api";
+import { UserType } from "@/types/userType";
+import EmptyList from "../EmptyList";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -41,6 +45,21 @@ function a11yProps(index: number) {
 
 export default function BasicTabs() {
   const [value, setValue] = React.useState(0);
+  const [users, setUsers] = React.useState<UserType[]>([]);
+
+  const getUsers = async () => {
+    try {
+      await clientApi
+        .get("/users", { params: { page: 1 } })
+        .then((data) => setUsers(data.data.data));
+    } catch (error: any) {
+      console.log(error.message);
+    }
+  };
+
+  React.useEffect(() => {
+    getUsers();
+  }, []);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -67,24 +86,24 @@ export default function BasicTabs() {
           }}
         >
           <Tab style={{ color: "#fff" }} label="گروه ها" {...a11yProps(0)} />
+          <Tab style={{ color: "#fff" }} label="کانال ها" {...a11yProps(1)} />
           <Tab
-            icon={<MessageNumber> 9 </MessageNumber>}
+            icon={<MessageNumber> {users.length} </MessageNumber>}
             iconPosition="end"
             style={{ color: "#fff" }}
-            label="کانال ها"
-            {...a11yProps(1)}
+            label="کاربرها"
+            {...a11yProps(2)}
           />
-          <Tab style={{ color: "#fff" }} label="کاربرها" {...a11yProps(2)} />
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        Item One
+        <EmptyList />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        Item Two
+        <EmptyList />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
-        Item Three
+        <ChannelList users={users} />
       </CustomTabPanel>
     </Box>
   );

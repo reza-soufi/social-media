@@ -11,14 +11,13 @@ import SearchIcon from "@mui/icons-material/Search";
 export default function SearchAppBar() {
   return (
     <Box sx={{ borderBottom: 1, borderColor: "#2e3056" }}>
-      <AppBar position="static" elevation={0}>
+      <AppBar position="static" elevation={0} sx={{ padding: "10px 0" }}>
         <Toolbar>
           <IconButton
             size="large"
             edge="start"
             color="inherit"
             aria-label="open drawer"
-            sx={{ mr: 2 }}
           >
             <MenuIcon />
           </IconButton>
@@ -27,7 +26,7 @@ export default function SearchAppBar() {
             textAlign="center"
             noWrap
             component="div"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+            sx={{ flexGrow: 1 }}
           >
             پیام های سازمانی
           </Typography>

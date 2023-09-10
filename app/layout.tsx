@@ -1,7 +1,7 @@
 "use client";
 import "./global.css";
 import Header from "@/components/Layout/Header";
-import { MainContainer } from "@/components/StyledComponents/MainContainer";
+import { MainContainer } from "@/components/StyledComponents/commonStyles/MainContainer";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import type { Metadata } from "next";
 
