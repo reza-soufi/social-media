@@ -10,7 +10,7 @@ import SearchIcon from "@mui/icons-material/Search";
 
 export default function SearchAppBar() {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ borderBottom: 1, borderColor: "#2e3056" }}>
       <AppBar position="static" elevation={0}>
         <Toolbar>
           <IconButton
