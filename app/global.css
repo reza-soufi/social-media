@@ -10,3 +10,7 @@ body {
   direction: rtl;
   font-family: "Dana";
 }
+a {
+  text-decoration: none;
+  color: #fff;
+}

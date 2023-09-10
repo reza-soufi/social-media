@@ -4,6 +4,7 @@ import Header from "@/components/Layout/Header";
 import { MainContainer } from "@/components/StyledComponents/commonStyles/MainContainer";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import type { Metadata } from "next";
+import { usePathname } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "App",
@@ -26,13 +27,14 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = usePathname();
   return (
     <html lang="en">
       <body>
         <ThemeProvider theme={theme}>
           <MainContainer>
-            <Header />
-            {children}
+            {pathname === "/" && <Header />}
+            <main>{children}</main>
           </MainContainer>
         </ThemeProvider>
       </body>

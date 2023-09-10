@@ -1,6 +1,7 @@
 "use client";
 import { FC } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 // types
 import type { UserType } from "@/types/userType";
@@ -20,28 +21,30 @@ const ChannelList: FC<UserProps> = ({ users }) => {
   return (
     <>
       {users.map((user: UserType) => (
-        <ChannelBox key={user?.id}>
-          <ChannelImage>
-            <Image
-              src={user?.avatar}
-              alt={user?.first_name}
-              layout="fill"
-              style={{ borderRadius: "50%" }}
-            />
-          </ChannelImage>
-          <ChannelInfoBox>
-            <div>
-              <ChannelTitle>
-                {user?.first_name} {user?.last_name}
-              </ChannelTitle>
-              <ChannelTitle variant="font"> {user.email} </ChannelTitle>
-            </div>
-            <div>
-              <MessageNumber> 3 </MessageNumber>
-              <ChannelTitle variant="time"> 11:45 </ChannelTitle>
-            </div>
-          </ChannelInfoBox>
-        </ChannelBox>
+        <Link href={`/user/${user?.id}`} key={user?.id}>
+          <ChannelBox>
+            <ChannelImage>
+              <Image
+                src={user?.avatar}
+                alt={user?.first_name}
+                layout="fill"
+                style={{ borderRadius: "50%" }}
+              />
+            </ChannelImage>
+            <ChannelInfoBox>
+              <div>
+                <ChannelTitle>
+                  {user?.first_name} {user?.last_name}
+                </ChannelTitle>
+                <ChannelTitle variant="font"> {user.email} </ChannelTitle>
+              </div>
+              <div>
+                <MessageNumber> 3 </MessageNumber>
+                <ChannelTitle variant="time"> 11:45 </ChannelTitle>
+              </div>
+            </ChannelInfoBox>
+          </ChannelBox>
+        </Link>
       ))}
     </>
   );

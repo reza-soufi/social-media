@@ -1,12 +1,16 @@
 "use client";
 import styled from "styled-components";
 
-export const ChannelImage = styled.div`
+type Props = {
+  variant?: string;
+};
+
+export const ChannelImage = styled.div<Props>`
   position: relative;
-  width: 60px;
-  min-width: 60px;
-  min-height: 60px;
-  height: 60px;
+  width: ${(props) => (props.variant === "header" ? "50px" : "60px")};
+  min-width: ${(props) => (props.variant === "header" ? "50px" : "60px")};
+  min-height: ${(props) => (props.variant === "header" ? "50px" : "60px")};
+  height: ${(props) => (props.variant === "header" ? "50px" : "60px")};
   border-radius: 50%;
   object-fit: cover;
 `;
