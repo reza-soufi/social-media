@@ -21,3 +21,10 @@ export const ChannelTitle = styled.div<Props>`
       : ""};
   text-align: ${(props) => (props.variant === "time" ? "center" : "")};
 `;
+
+export const LastMessage = styled(ChannelTitle)`
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 190px;
+`;

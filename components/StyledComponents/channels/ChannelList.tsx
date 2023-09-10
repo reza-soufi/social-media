@@ -9,7 +9,7 @@ import type { UserType } from "@/types/userType";
 // components
 import { ChannelBox } from "./ChannelBox";
 import { ChannelImage } from "./ChannelImage";
-import { ChannelTitle } from "./ChannelTitle";
+import { ChannelTitle, LastMessage } from "./ChannelTitle";
 import { ChannelInfoBox } from "./ChannelInfoBox";
 import { MessageNumber } from "../commonStyles/MessageNumber";
 
@@ -36,7 +36,11 @@ const ChannelList: FC<UserProps> = ({ users }) => {
                 <ChannelTitle>
                   {user?.first_name} {user?.last_name}
                 </ChannelTitle>
-                <ChannelTitle variant="font"> {user.email} </ChannelTitle>
+                <LastMessage variant="font">
+                  {" "}
+                  {user.email}
+                  {user.email}{" "}
+                </LastMessage>
               </div>
               <div>
                 <MessageNumber> 3 </MessageNumber>

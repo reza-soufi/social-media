@@ -5,4 +5,5 @@ export const ChannelBox = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  overflow: hidden;
 `;
