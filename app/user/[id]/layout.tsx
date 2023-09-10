@@ -1,6 +1,7 @@
 // components
 import { clientApi } from "@/services/api";
 import UserHeader from "./components/header";
+import { MainStyles } from "./components/MainStyles";
 
 export const getData = async (id: number) => {
   return await clientApi.get(`/users/${id}`).then((data) => data.data.data);
@@ -17,7 +18,7 @@ export default async function UserLayout({
   return (
     <>
       <UserHeader user={data} />
-      <main>{children}</main>
+      <MainStyles>{children}</MainStyles>
     </>
   );
 }

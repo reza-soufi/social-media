@@ -1,5 +1,7 @@
+import SingleChatPage from "./components/SingleChat";
+
 const SingleUser = () => {
-  return <div>SingleUser</div>;
+  return <SingleChatPage />;
 };
 
 export default SingleUser;
