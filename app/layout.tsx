@@ -1,10 +1,14 @@
 "use client";
 import "./global.css";
+import { usePathname } from "next/navigation";
+
+// components
 import Header from "@/components/Layout/Header";
 import { MainContainer } from "@/components/StyledComponents/commonStyles/MainContainer";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+//  types
 import type { Metadata } from "next";
-import { usePathname } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "App",

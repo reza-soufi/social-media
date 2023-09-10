@@ -1,5 +1,10 @@
 "use client";
 
+import { FC } from "react";
+import Link from "next/link";
+import Image from "next/image";
+
+// components
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -7,11 +12,10 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import SearchIcon from "@mui/icons-material/Search";
-import { UserType } from "@/types/userType";
-import { FC } from "react";
-import Image from "next/image";
 import { ChannelImage } from "@/components/StyledComponents/channels/ChannelImage";
-import Link from "next/link";
+
+// types
+import type { UserType } from "@/types/userType";
 
 type UserProps = {
   user: UserType;
