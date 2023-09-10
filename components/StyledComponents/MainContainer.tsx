@@ -9,5 +9,4 @@ export const MainContainer = styled.div`
   height: 100%;
   max-width: 512px;
   margin: 0 auto;
-  border: 1px solid;
 `;

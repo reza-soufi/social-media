@@ -1,0 +1,12 @@
+@font-face {
+  font-family: "Dana";
+  src: url(../public/fonts/Dana-FaNum-Regular.ttf) format("truetype");
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+  font-family: "Dana";
+}
